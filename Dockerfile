@@ -24,13 +24,11 @@ RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && 
         echo "DefaultEncryption Never" >> /etc/cups/cupsd.conf && \
         sed -i '/SystemGroup sys root$/ s/$/ wheel/' /etc/cups/cups-files.conf
 
-
-RUN mv /root/airprint.types /usr/share/cups/mime/ && \
-        mv /root/airprint.convs /usr/share/cups/mime/ 
-
 # Add scripts
 ADD root /
-RUN chmod +x /root/*
+RUN chmod +x /root/* && \
+        mv /root/airprint.types /usr/share/cups/mime/ && \
+        mv /root/airprint.convs /usr/share/cups/mime/ 
 CMD ["/root/run_cups.sh"]
 
 # This will use port 631
