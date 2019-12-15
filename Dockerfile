@@ -5,6 +5,7 @@ RUN yum install epel-release -y && \
         yum -y install cups cups-client cups-libs cups-pdf ghostscript-cups \ 
             cups-filters cups-filters-libs cups-filesystem \ 
             python-cups && \
+        yum -y --setopt tsflags= reinstall cups && \
         yum -y install file a2ps libstdc++.i686 glibc.i686 policycoreutils-python wget inotify inotify-tools && \
         rm -rf /var/cache/yum
 
