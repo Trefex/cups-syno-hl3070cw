@@ -5,7 +5,7 @@ RUN yum install epel-release -y && \
         yum -y install cups cups-client cups-libs cups-pdf ghostscript-cups \ 
             cups-filters cups-filters-libs cups-filesystem \ 
             python-cups && \
-        yum -y install libstdc++.i686 glibc.i686 policycoreutils-python wget inotify inotify-tools && \
+        yum -y install file a2ps libstdc++.i686 glibc.i686 policycoreutils-python wget inotify inotify-tools && \
         rm -rf /var/cache/yum
 
 RUN wget -T 10 -nd --no-cache http://www.brother.com/pub/bsc/linux/packages/hl3070cwlpr-1.1.2-1.i386.rpm && \
