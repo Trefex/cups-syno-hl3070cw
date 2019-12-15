@@ -30,7 +30,9 @@ RUN mv /root/airprint.types /usr/share/cups/mime/ && \
 
 # Add scripts
 ADD root /
-RUN chmod +x /root/*
+RUN chmod +x /root/* && \
+        mv /root/airprint.types /usr/share/cups/mime/ && \
+        mv /root/airprint.convs /usr/share/cups/mime/ 
 CMD ["/root/run_cups.sh"]
 
 # This will use port 631
